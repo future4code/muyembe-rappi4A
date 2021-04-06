@@ -11,6 +11,7 @@ const RestaurantListPage = () => {
     requests.getRestaurants();
   }, []);
 
+  console.log("states.restaurants", states.restaurants)
   return (
     <>
       <p>TELA INICIAL DE LISTA DE RESTAURANTES/BUSCA</p>
