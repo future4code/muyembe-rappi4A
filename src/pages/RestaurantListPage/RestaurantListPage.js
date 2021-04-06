@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import GlobalStateContext from '../../global/GlobalStateContext';
 import { goToCartPage, goToProfilePage } from '../../routes/Coordinator';
 
 const RestaurantListPage = () => {
+  const { states, setters, requests } = useContext(GlobalStateContext);
   const history = useHistory();
 
+  useEffect(() => {
+    requests.getRestaurants();
+  }, []);
+
+  console.log("states.restaurants", states.restaurants)
   return (
     <>
       <p>TELA INICIAL DE LISTA DE RESTAURANTES/BUSCA</p>
