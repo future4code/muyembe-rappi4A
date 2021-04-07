@@ -1,8 +1,10 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import useProtectedPages from '../../hooks/useProtectedPages';
 import { goToProfilePage, goToRestaurantListPage } from '../../routes/Coordinator';
 
 const EditAddressPage = () => {
+  useProtectedPages()
   const history = useHistory();
 
   return (

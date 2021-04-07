@@ -1,0 +1,5 @@
+export const primary = "#e86e5a"
+export const textColor = "#000000"
+export const textGeneralColor = "#000000"
+export const titleRestaurantColor = "#4cd964"
+export const addCartColor = "#4a90e2"
