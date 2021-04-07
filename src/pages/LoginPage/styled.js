@@ -55,14 +55,19 @@ export const RegisterButton = styled(Button)`
 `
 export const BotaoOlho = styled.button`
     position: absolute;
-    top: 97px;
-    right: 25px;
-    width: 5px;
+    top: 19.5rem;
+    right: 3.125rem;
+    width: 0.313rem;
     cursor: pointer;
     border: none;
     background-color: transparent;
-    margin-top:14px;
+    margin-top:0.875rem;
+
+    @media screen and (min-width: 700px) {
+        right: 6.25rem;
+    }   
 `
+
 
 export const OlhoFechado = styled(VisibilityOff)`
     color: gray;
