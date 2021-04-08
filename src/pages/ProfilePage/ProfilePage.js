@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import useProtectedPages from '../../hooks/useProtectedPages';
 import {
   goToEditAddressPage,
   goToEditDataPage,
@@ -8,6 +9,7 @@ import {
 } from '../../routes/Coordinator';
 
 const ProfilePage = () => {
+  useProtectedPages()
   const history = useHistory();
 
   return (

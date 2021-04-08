@@ -1,16 +1,30 @@
-import React from 'react';
-import { useHistory } from 'react-router-dom';
-import { goToRestaurantListPage, goToSignUpPage } from '../../routes/Coordinator';
+import React from 'react'
+import { useHistory } from 'react-router-dom'
+import { goToSignUpPage } from '../../routes/Coordinator';
+import { Button } from '@material-ui/core'
+import { ContainerLoginPage, ContainerForm, NaoPossuiCadastroButton} from './styled'
+import LoginForm from './LoginForm';
+import ComponentLogo from '../../components/ComponentLogo/ComponentLogo'
+import useUnProtectedPages from '../../hooks/useUnProtectedPage';
 
 const LoginPage = () => {
-  const history = useHistory();
+  useUnProtectedPages()
+  const history = useHistory()
   return (
-    <>
-      <p>TELA DE LOGIN</p>
-      <button onClick={() => goToSignUpPage(history)}> Ainda não tem login? Faça seu cadastro! </button>
-      <button onClick={() => goToRestaurantListPage(history)}> Ir para página inicial </button>
-    </>
-  );
+    <ContainerLoginPage>
+      <ComponentLogo />
+      <h3>Entrar</h3>
+      <ContainerForm >
+        <LoginForm />
+        <NaoPossuiCadastroButton
+          onClick={() => goToSignUpPage(history)}
+          variant={"text"}
+          >
+          Não Possui Cadastro? Clique aqui.
+        </NaoPossuiCadastroButton>
+      </ContainerForm>
+    </ContainerLoginPage>
+  )
 }
 
-export default LoginPage;
+export default LoginPage
