@@ -9,13 +9,13 @@ const GlobalState = (props) => {
     
     const token = localStorage.getItem("token")
 
+
   const getRestaurants = () => {
     axios
       .get(`${BASE_URL}/restaurants`, {
         headers: {
             auth: token
         } 
-
       })
       .then((res) => setRestaurants(res.data.restaurants) )
       .catch((err) => console.log(err));
@@ -27,12 +27,13 @@ const GlobalState = (props) => {
   const requests = { getRestaurants };
 
   const data = { states, setters, requests };
-  
+
   return (
     <GlobalStateContext.Provider value={data}>
       {props.children}
     </GlobalStateContext.Provider>
   );
 };
+
 
 export default GlobalState;
