@@ -3,10 +3,10 @@ import axios from 'axios'
 import { useHistory } from 'react-router-dom'
 import { goToRestaurantListPage } from '../../routes/Coordinator';
 import { BASE_URL } from '../../constants/urls'
-import { EmailInput, PasswordInput, ContainerButton, InputPassword, LoginButton, LabelPassword, BotaoOlho, OlhoFechado} from './styled'
+import { LoginButton, BotaoOlho, OlhoFechado} from './styled'
 import useForm from '../../hooks/useForm'
-import { Button, FormControl, IconButton, Input, InputAdornment, InputLabel, OutlinedInput, TextField } from '@material-ui/core';
-import { Visibility, VisibilityOff } from '@material-ui/icons';
+import { TextField } from '@material-ui/core';
+import { Visibility } from '@material-ui/icons';
 
 const LoginForm = () => {
     const [form, onChange] = useForm({ email: "", password: "" })
