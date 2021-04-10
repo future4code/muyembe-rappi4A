@@ -20,8 +20,8 @@ const RestaurantListPage = () => {
       <ContainerTitle>
         <TitlePageRestaurantsList>Rappi4</TitlePageRestaurantsList>
       </ContainerTitle>
-      <button onClick={() => goToCartPage(history)}> Ir para carrinho </button>
-      <button onClick={() => goToProfilePage(history)}> Ir para o perfil de usuário </button>
+      {/* <button onClick={() => goToCartPage(history)}> Ir para carrinho </button>
+      <button onClick={() => goToProfilePage(history)}> Ir para o perfil de usuário </button> */}
     </>
   );
 }
