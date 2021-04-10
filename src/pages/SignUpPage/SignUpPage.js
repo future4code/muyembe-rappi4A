@@ -1,21 +1,25 @@
-import React from 'react';
-import { useHistory } from 'react-router-dom';
+import React from 'react'
+import { useHistory } from 'react-router-dom'
+import { goToSignUpPage, goToLoginPage } from '../../routes/Coordinator';
+import { ContainerLoginPage, ContainerForm, NaoPossuiCadastroButton, Linha, ArrowBack} from './styled'
+import ComponentLogo from '../../components/ComponentLogo/ComponentLogo'
 import useUnProtectedPages from '../../hooks/useUnProtectedPage';
-import { goToLoginPage, goToRestaurantListPage } from '../../routes/Coordinator';
-import Header from '../../components/ComponentLogo/ComponentLogo'
+import SignUpPage from './SignUpForm';
 
-const SignUpPage = () => {
+const LoginPage = () => {
   useUnProtectedPages()
-  const history = useHistory();
-
+  const history = useHistory()
   return (
-    <>
-      <Header />
-      <p>TELA DE CADASTRO</p>
-      <button onClick={() => goToLoginPage(history)}> Já tem cadastro? Faça login! </button>
-      <button onClick={() => goToRestaurantListPage(history)}> Ir para página inicial </button>
-    </>
-  );
+    <ContainerLoginPage>
+      <ArrowBack onClick={() => goToLoginPage(history)}/>
+      <Linha/>
+      <ComponentLogo />
+      <h3>Cadastrar</h3>
+      <ContainerForm >
+        <SignUpPage />
+      </ContainerForm>
+    </ContainerLoginPage>
+  )
 }
 
-export default SignUpPage;
+export default LoginPage
