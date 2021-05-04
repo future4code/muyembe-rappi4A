@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import GlobalStateContext from "./GlobalStateContext";
 import axios from "axios";
 import { BASE_URL } from "../constants/urls";
 
 const GlobalState = (props) => {
-    const [ restaurants, setRestaurants ] = useState([]);
-    const [ cart, setCart ] = useState([]);
-    
-    const token = localStorage.getItem("token")
-
-
+  const [ restaurants, setRestaurants ] = useState([]);
+  const [ cart, setCart ] = useState([]);
+  
+  const token = localStorage.getItem("token")
+  
   const getRestaurants = () => {
+    const token = localStorage.getItem("token")
+    console.log("token ====", token)
     axios
       .get(`${BASE_URL}restaurants`, {
         headers: {
@@ -20,6 +21,8 @@ const GlobalState = (props) => {
       .then((res) => setRestaurants(res.data.restaurants) )
       .catch((err) => console.log(err));
   };
+
+  
 
 
   const states = { restaurants, cart };

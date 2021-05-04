@@ -6,6 +6,7 @@ import GlobalStateContext from '../../global/GlobalStateContext';
 import useProtectedPages from '../../hooks/useProtectedPages';
 import { goToCartPage, goToProfilePage } from '../../routes/Coordinator';
 import { TitlePageRestaurantsList, ContainerTitle } from './styled'
+import CircularProgress  from '@material-ui/core/CircularProgress'
 
 const RestaurantListPage = () => {
   const { states, setters, requests } = useContext(GlobalStateContext);
@@ -32,6 +33,7 @@ const RestaurantListPage = () => {
       </ContainerTitle>
       <SearchRestaurant />
       <CategoriesFoods categories={categories} />
+      {/* {categories.length > 0 ? <CategoriesFoods categories={categories} /> : <CircularProgress color={"inherit"} size={24}/>} */}
       
       {/* <button onClick={() => goToCartPage(history)}> Ir para carrinho </button>
       <button onClick={() => goToProfilePage(history)}> Ir para o perfil de usuário </button> */}
