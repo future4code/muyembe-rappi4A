@@ -1,19 +1,37 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
+import GlobalStateContext from '../../global/GlobalStateContext';
 import {ContainerCategory, ItemCategory, ListaCategory} from './styled'
 
 const CategoriesFoods = ({categories}) => {
-    
-    return (
-      <ContainerCategory>
-          <ListaCategory>
-            {categories.map((category, index) => {
-                return (
-                    <ItemCategory key={index}>{category}</ItemCategory>
-                )
-            })}
-          </ListaCategory>
-          
-      </ContainerCategory>
-    );
+  const { states, setters, requests } = useContext(GlobalStateContext);
+
+  const onClickCategory = (category) => {
+    setters.setCategorySelected(category)
+  }
+
+  return (
+    <ContainerCategory>
+      <ListaCategory>
+        {categories.map((category, index) => {
+          let isSelected
+          if(states.categorySelected === category ) {
+            isSelected = true
+          } else {
+            isSelected = false
+          }  
+          return (
+            <ItemCategory 
+              key={index} 
+              colorSelected={isSelected}
+              onClick={() => onClickCategory(category)}
+            >
+              {category}
+            </ItemCategory>
+          )
+        })}
+      </ListaCategory>
+        
+    </ContainerCategory>
+  );
   }
   export default CategoriesFoods;

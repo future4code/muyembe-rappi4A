@@ -10,5 +10,14 @@ export const ListaCategory = styled.ul`
 
 export const ItemCategory = styled.li`
   margin: 0 8px;
+  font-weight: bold;
+
+  color: ${(props) => {
+    if(props.colorSelected){
+      return "red"
+    } else {
+      return ""
+    }
+  }}
 `
 

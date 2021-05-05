@@ -6,12 +6,12 @@ import { BASE_URL } from "../constants/urls";
 const GlobalState = (props) => {
   const [ restaurants, setRestaurants ] = useState([]);
   const [ cart, setCart ] = useState([]);
+  const [categorySelected, setCategorySelected ] = useState("Árabe")
   
   const token = localStorage.getItem("token")
   
   const getRestaurants = () => {
     const token = localStorage.getItem("token")
-    console.log("token ====", token)
     axios
       .get(`${BASE_URL}restaurants`, {
         headers: {
@@ -22,11 +22,8 @@ const GlobalState = (props) => {
       .catch((err) => console.log(err));
   };
 
-  
-
-
-  const states = { restaurants, cart };
-  const setters = { setRestaurants, setCart };
+  const states = { restaurants, cart, categorySelected };
+  const setters = { setRestaurants, setCart, setCategorySelected };
   const requests = { getRestaurants };
 
   const data = { states, setters, requests };
