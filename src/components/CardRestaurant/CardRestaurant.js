@@ -2,27 +2,9 @@ import React, { useContext, useEffect, useState } from 'react';
 import GlobalStateContext from '../../global/GlobalStateContext';
 import { ContainerCardRestaurant, ContainerShipping, ContainerImageLogoRestaurant, InfoShipping, InfoTimeDelivery, LogoRestaurant, NameRestaurant, ContainerNameAndTime, ContainerInfosCard, ContainerNotFound } from './styled'
 
-const CardRestaurant = (dataRestaurants) => {
+const CardRestaurant = () => {
   const { states, setters, requests } = useContext(GlobalStateContext);
-  const [ isFilterByCategory, setIsFilterByCategory ] = useState(true)
-  
-  
-  // let dataRestaurant
-  // if(isFilterByCategory) {
-  //   dataRestaurant =
-  //     states.restaurants &&
-  //     states.restaurants.filter((restaurant) => {
-  //       if(states.categorySelected === restaurant.category) {
-  //         return restaurant
-  //       }
-  //     })
-  // } else {
-
-  // }
-    
-
-
-  console.log("dataRestaurants ===", dataRestaurants)
+      
   return (
     <>
 

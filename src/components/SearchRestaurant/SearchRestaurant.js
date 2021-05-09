@@ -16,10 +16,8 @@ const SearchRestaurant = () => {
     const history = useHistory();
   
     const onSubmitForm = (event) => {
-      console.log("form", form)
       event.preventDefault()
       filterRestaurantsByName(form)
-      // login()
     }
 
     const filterRestaurantsByName = ({nameRestaurant}) => {
@@ -31,8 +29,6 @@ const SearchRestaurant = () => {
       setters.setDataRestaurantsView(restaurant)
     }
     
-  
-    // console.log("states.restaurants", states.restaurants)
     return (
       <ContainerSearchRestaurant>
         <FormSearchRestaurant onSubmit={onSubmitForm}>

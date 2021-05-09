@@ -39,7 +39,6 @@ const GlobalState = (props) => {
         return restaurant
       }
     })
-    console.log(dataRestaurant)
     setDataRestaurantsView(dataRestaurant)
   }
 
