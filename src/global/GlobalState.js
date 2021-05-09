@@ -7,6 +7,9 @@ const GlobalState = (props) => {
   const [ restaurants, setRestaurants ] = useState([]);
   const [ cart, setCart ] = useState([]);
   const [categorySelected, setCategorySelected ] = useState("Árabe")
+  const [ dataRestaurantsView, setDataRestaurantsView ] = useState([]);
+  const [ categoriesRestaurants, setCategoriesRestaurants ] = useState([]);
+  const [ isListPageRestaurants, setIsListPageRestaurants ] = useState(true)
   
   const token = localStorage.getItem("token")
   
@@ -22,9 +25,28 @@ const GlobalState = (props) => {
       .catch((err) => console.log(err));
   };
 
-  const states = { restaurants, cart, categorySelected };
-  const setters = { setRestaurants, setCart, setCategorySelected };
-  const requests = { getRestaurants };
+  const getCategories = () => {
+    const arrayCategories = restaurants.map((restaurant) => {
+      return restaurant.category
+    })
+    setCategoriesRestaurants(arrayCategories)
+  }
+
+  const filterRestaurantsByCategory = () => {
+    const dataRestaurant =
+    states.restaurants.filter((restaurant) => {
+      if(categorySelected === restaurant.category) {
+        return restaurant
+      }
+    })
+    console.log(dataRestaurant)
+    setDataRestaurantsView(dataRestaurant)
+  }
+
+
+  const states = { restaurants, cart, categorySelected, dataRestaurantsView, categoriesRestaurants, isListPageRestaurants };
+  const setters = { setRestaurants, setCart, setCategorySelected, setDataRestaurantsView, setCategoriesRestaurants, setIsListPageRestaurants };
+  const requests = { getRestaurants, getCategories, filterRestaurantsByCategory };
 
   const data = { states, setters, requests };
 

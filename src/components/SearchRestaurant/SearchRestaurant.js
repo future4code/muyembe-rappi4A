@@ -12,13 +12,23 @@ import GlobalStateContext from '../../global/GlobalStateContext';
 
 const SearchRestaurant = () => {
     const [form, onChange] = useForm({ nameRestaurant: "" })
-    // const { states, setters, requests } = useContext(GlobalStateContext);
+    const { states, setters, requests } = useContext(GlobalStateContext);
     const history = useHistory();
   
     const onSubmitForm = (event) => {
       console.log("form", form)
       event.preventDefault()
+      filterRestaurantsByName(form)
       // login()
+    }
+
+    const filterRestaurantsByName = ({nameRestaurant}) => {
+      setters.setIsListPageRestaurants(false)
+      const restaurant  = states.restaurants.filter((item) => {
+        const itemNameLowerCase = item.name.toLowerCase()
+        return itemNameLowerCase.includes(nameRestaurant.toLowerCase())
+      })
+      setters.setDataRestaurantsView(restaurant)
     }
     
   
@@ -31,7 +41,7 @@ const SearchRestaurant = () => {
             value={form.nameRestaurant}
             onChange={onChange}
             type="text"
-            name="name-restaurant-search"
+            name="nameRestaurant"
             placeholder="Restaurante"
           />
         </FormSearchRestaurant>

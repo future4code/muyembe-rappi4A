@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import GlobalStateContext from '../../global/GlobalStateContext';
 import {ContainerCategory, ItemCategory, ListaCategory} from './styled'
 
-const CategoriesFoods = ({categories}) => {
+const CategoriesFoods = () => {
   const { states, setters, requests } = useContext(GlobalStateContext);
 
   const onClickCategory = (category) => {
@@ -12,7 +12,7 @@ const CategoriesFoods = ({categories}) => {
   return (
     <ContainerCategory>
       <ListaCategory>
-        {categories.map((category, index) => {
+        {states.categoriesRestaurants.map((category, index) => {
           let isSelected
           if(states.categorySelected === category ) {
             isSelected = true
